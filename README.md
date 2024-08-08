@@ -26,3 +26,28 @@ for file in $files; do
 done
 
 ```
+
+
+### Compress
+https://gist.github.com/Kautenja/af670104f13c94f92b69ce054ee96b42
+
+```shell
+tar cf - <files> -P | pv -s $(du -sb <files> | awk '{print $1}') | gzip > <some .tar.gz file>
+```
+
+where:
+
+-   `<files>` is the root-mounted (i.e. starts with /) path to the files
+-   `<some .tar.gz file>` is the output tarball to create
+
+### Decompress
+https://gist.github.com/Kautenja/af670104f13c94f92b69ce054ee96b42
+
+```shell
+pv <some .tar.gz file> | tar -xvzf - -C <some directory>
+```
+
+where:
+
+-   `<some .tar.gz file>` is the path to the tarball to extract
+-   `<some directory>` is the directory to extract the tarball to 
