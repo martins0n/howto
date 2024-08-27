@@ -50,4 +50,28 @@ pv <some .tar.gz file> | tar -xvzf - -C <some directory>
 where:
 
 -   `<some .tar.gz file>` is the path to the tarball to extract
--   `<some directory>` is the directory to extract the tarball to 
+-   `<some directory>` is the directory to extract the tarball to
+
+## VSCode
+
+### Run python for debuging cli/app with args 
+
+Launch config like:
+```
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        // debug python cli faststream run fastream-ex:app
+        {
+            "name": "Fastapi",
+            "request": "launch",
+            "module": "faststream",
+            "type": "debugpy",
+            "args": ["run", "fastream-ex:app"]
+        }
+    ]
+}
+```
